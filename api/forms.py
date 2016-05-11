@@ -6,7 +6,7 @@ class ColorForm(forms.ModelForm):
 	class Meta:
 		model = Color
 		fields = ['name','hexadecimal', 'red', 'green', 'blue' ]
-		lables = {
+		labels = {
 		'name':  _('Escribe el nombre de tu color'),
 		'hexadecimal':  _('Cual es el hexadecimal'),
 		'rojo':  _('Porcentaje de rojo'),
