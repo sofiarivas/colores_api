@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import View
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .models import Color
+from .forms import ColorForm
 import json
 
 
@@ -92,3 +93,18 @@ class ColorView(View):
         else:
             resp = {'status': 'error', 'message': 'Color not available'}
         return HttpResponse(json.dumps(resp), content_type='application/json')
+
+
+class FormularioView(View):
+    def get (self, request):
+        template_name = 'api/formulario.html'
+        form = ColorForm()
+        context={
+        'form': form,
+        }
+        return render(request, template_name, context)
+
+    def post(self, request):
+        form=ColorForm(request.POST)
+        form.save()
+        return redirect('api:colors')
