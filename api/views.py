@@ -11,6 +11,15 @@ import json
 def index(request):
     return HttpResponse('Hoooooooola')
 
+class DisplayColors(View):
+    def get(self, request):
+        template_name = 'api/display_color.html'
+        return render(request, template_name)
+
+class DisplayAdvance(View):
+    def get(self, request):
+        template_name = 'api/display_advanced.html'
+        return render(request, template_name)
 
 class HomeView(View):
     def get(self, request):

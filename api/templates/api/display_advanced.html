@@ -1,0 +1,25 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Display 2.0</title>
+	
+</head>
+<body>
+{%verbatim vue_app%}
+	<div id="app">
+		<h1>Display advanced, una aplicación de Vue</h1>
+		<span>{{message}}</span>
+		<input type="text" v-model="message">
+	</div>
+{%endverbatim vue_app%}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.js"></script>
+	<script>
+	new Vue({
+		el: "#app",
+		data: {
+			'message': "Hola vue"
+		}
+	});
+	</script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from .views import IndexView, GreetView, JsonView, ColorView, ColorsView,FormularioView
+from .views import IndexView, GreetView, JsonView, ColorView, ColorsView,FormularioView, DisplayColors, DisplayAdvance
 from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
@@ -10,7 +10,8 @@ urlpatterns = [
     url(r'colors/$', ColorsView.as_view(),
     	name='colors'
     	),
-    url(r'formulario/$', FormularioView.as_view())
-
+    url(r'formulario/$', FormularioView.as_view()),
+    url(r'display/$', DisplayColors.as_view(), name ="display"),
+    url(r'displayadvanced/$', DisplayAdvance.as_view(), name ="displayadvance")
 ]
 

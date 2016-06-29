@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Display Colors</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<h1>Display de colores</h1>
+		<div id="color_container"></div>
+
+		<template id="color-template">
+			<div class="color-item">
+				<div>Nombre:<span class="color-name"></span></div>
+				<div>Hexadecimal: <span class="color-hex"></span></div>
+			</div>
+		</template>
+
+
+		<script>
+		//cuando la pagina cargue
+			$(function(){
+				$.get('/restapi/colors',{}, function(response){
+
+
+					console.log(response);
+
+					for(var i = 0; i < response.length; i++){
+
+					template = $($("#color-template").html());
+
+					$("#color_container").append(template);
+
+ 					f = template.find(".color-name");
+ 					f.html(response[i].name);
+
+ 					h = template.find(".color-hex");
+ 					h.html(response[i].hexadecimal);
+
+ 					}
+
+				});
+			});
+		</script>
+	</body>
+</html>
