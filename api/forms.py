@@ -5,8 +5,8 @@ from django.utils.translation import ugettext_lazy as _
 class ColorForm(forms.ModelForm):
 	class Meta:
 		model = Color
-		fields = ['name','hexadecimal','descripcion', 'red', 'green', 'blue' ]
-		lables = {
+		fields = ['name','hexadecimal', 'red', 'green', 'blue' ]
+		labels = {
 		'name':  _('Escribe el nombre de tu color'),
 		'hexadecimal':  _('Cual es el hexadecimal'),
 		'rojo':  _('Porcentaje de rojo'),
